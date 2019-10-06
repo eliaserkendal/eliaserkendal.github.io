@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Fennec Peak</title>
+        <link rel="stylesheet" type="text/css" href="../../css/projectstyle.css">
+        <link rel="stylesheet" href="../../scripts/styles/vs2015.css">
+        <script src="../../scripts/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script src="../../scripts/codeboxopenclose.js"></script>
+        <script>HideShowCodebox();</script>
+    </head>
+<body>
+
+<!-- HEADER WITH MENU -->
+<header>
+    <navigation-menu>
+    <ul class="shadow">
+        <li>
+            <a href="../../index.html" target="_self"> Home </a>
+        </li>
+        <li>
+            <a href="../../index.html#projects" target="_self"> Projects </a>
+        </li>
+        <li>
+            <a href="../about.html" target="_self"> About </a>
+        </li>
+        <li>
+            <a href="../about.html#education" target="_self"> Education </a>
+        </li>
+        <li>
+            <a href="../about.html#skills" target="_self"> Skills </a>
+        </li>
+    </ul>
+    </navigation-menu>
+</header>
+<!-- END HEADER -->
+<!-- PROFILE SECTION -->
+<div id=header class="headertint" style="background-image: url('../../images/fennecpeakposter.jpg')">
+        <div id="project-logo" class="project-logo" style="background-image: url('../../images/fennecpeaklogohighres.png')">
+        </div>
+        <div id="profile">
+            <div id="profile-image">
+                <a href="../../index.html">
+                    <img src="../../images/profilePic.png">
+                </a>
+            </div>
+            <p id="name">Elias Erkendal</h1>
+            <p id="title">Junior programmer</h2>
+        <!-- SOCIAL MEDIA LIST -->
+        <ul class="social">
+            <li>
+                <a href="https://www.linkedin.com/in/elias-erkendal-9b6059144/" target="_blank" alt="linkedin">
+                    <i class="linkedin">
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/Lemonoak" target="_blank" alt="github"> 
+                    <i class="github">
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/elias27122" target="_blank" alt="twitter"> 
+                    <i class="twitter">
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/elias.erkendal.7" target="_blank" alt="facebook"> 
+                    <i class="facebook">
+                    </i>
+                </a>
+            </li>
+        </ul>
+        <!-- END SOCIAL MEDIA LIST -->
+        </div>
+</div>
+<!-- END PROFILE SECTION -->
+<div id="project" class="project-background" style="background-image: url('../../images/fennecpeakbackground.png')">
+    <div id="project-container">
+        <h2>Project Overview</h2>
+        <p>Fennec Peak local multiplayer arena fighting game. It was created during a seven week project with a team of twelve using Unity. The goal of the game is to push the other players off the map using two abilites and objects in the enviroment.</p>
+        
+        <h2>Game Info</h2>
+        <div id="game-info">
+            <div id="game-info-left">
+                <h3>Roles: <span class="li-answer">Game Programmer</span></h3>
+                <h3>Time: <span class="li-answer">7 Weeks</span></h3>
+                <h3>Date: <span class="li-answer">DATES HERE</span></h3>
+                <h3>Team Size: <span class="li-answer">12 (3 Programmers)</span></h3>
+            </div>
+            <div id="game-info-right">
+                <h3>Genre: <span class="li-answer">Party Arena</span></h3>
+                <h3>Engine: <span class="li-answer">Unity</span></h3>
+                <h3>Version Control: <span class="li-answer">Perforce</span></h3>
+                <h3>Code Language: <span class="li-answer">C#</span></h3>
+            </div>
+        </div>
+
+        <h2>My Role</h2>
+        <p>I worked on the movement and combat system for the characters together with a designer. But also some gameplay elements such as the power-up and exploding barrel.</p>
+        <h2>The Combat System</h2>
+        <p>The game is focused around the combat and snappy movement so combat had to feel right. In the beginning we tried using colliders and triggers but realised it did not feel good enough. To make the combat feel better we instead used raycasts and since the characters are swinging their weapons the rays had to go in an arc.</p>
+        <video class="attack-video" autoplay loop muted><source src="../../videos/FennecMelee.mp4" type="video/mp4"></video>
+            <p> One problem we had with this was that the rays shot out from the characters middle point going straight forward. This was a problem when we introduced height, jumping and smaller objects into the game!</p>
+            <p>To fix this problem we used 3 rays with different starting heights on the character, one on the head, the feet and the middle of the character.</p>
+            
+            <div id="codebox" style="max-height: 50px;">
+                <button class="codebox-button" onclick="HideShowCodebox('codebox')">Attack Code Snippet</button>
+            <pre><code class="C# hljs">
+//TOP ATTACK int angle = (int)(hitArcAngle / 2) * -1; 
+rayNumber = (int)hitArcAngle / 5; 
+for (int i = 0; i &#60; rayNumber; i++) 
+{ 
+    //Calculate ray direction 
+    Vector3 forwardDirection = Quaternion.Euler(0, angle, 0) * transform.forward; 
+    angle += 5; 
+    //Ray origin 
+    Vector3 topPos = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z); 
+    
+    RaycastHit[] hits = Physics.RaycastAll(topPos, forwardDirection, maxAttackLength); 
+    for (int j = 0; j &#60; hits.Length; j++) 
+    { 
+        if (!hits[j].collider.isTrigger) 
+        { 
+            IKnockback knockbackEffect = hits[j].collider.GetComponent&#60;IKnockback&#62;();
+            if (knockbackEffect != null) 
+            { 
+                Vector3 knockback = transform.forward * knockBackForce * attackCharge; 
+                knockbackEffect.Knockback(gameObject, knockback); 
+            } 
+            break; 
+        } 
+    } 
+    //Debug lines to see the rays
+    Debug.DrawLine(topPos, topPos + forwardDirection * maxAttackLength, Color.red, 2); 
+}
+            </code></pre>
+        </div>
+        <p>This was the solution that made the most sense with our time and experience in mind. Why complicate things when this worked well for our game?</p>
+        
+        <h2>Power-up</h2>
+        <p>The power-up structure is something that I am not happy with how it turned out.</p>
+        <p>The structure is currently that the power-up spawner handles the timer for spawning the mesh and collider, The power-up itself handles the collision and when the player steps within the collision of the power-up it has to search the player for 2 components located on different child objects. The characters weapon shader and the script with the weapons variables</p>
+        <img src="../../images/currentpowerupstructure.png" alt="powerup structure">
+        <p>The structure I want it to be is that the player stores the variables and the shader on the main object for the player, making it easier to get the components needed. The power-up could handle both spawning timer and the collision by itself reducing the amount of objects involved in the sequence.</p>
+        <img src="../../images/desiredpowerupstructure.png" alt="wanted powerup structure">
+        
+        <div id="codebox2" style="max-height: 50px;">
+            <button class="codebox-button" onclick="HideShowCodebox('codebox2')">Power-up Snippet</button>
+        <pre><code class="C# hljs">
+private void OnTriggerEnter(Collider other) 
+{ 
+    if(other.tag == "Player" &#38;&#38; !other.isTrigger) 
+    { 
+        PowerUpEffect(other); 
+    } 
+}
+
+public override void PowerUpEffect(Collider player) 
+{ 
+    //Gets the player 
+    playerMe = player.GetComponent&#60;PlayerMovement&#62;(); 
+    if(playerMe) 
+    { 
+        //finds player weapon Changes material to gold 
+        player.GetComponentInChildren&#60;PlayerWeaponPowerUP&#62;()?.ChangeMaterialToGold(); 
+    } 
+}
+</code></pre>
+        </div>
+        <p></p>
+    </div>
+</div>
+<!-- FOOTER -->
+<footer>
+    <div>
+        <p></p>
+    </div>
+</footer>
+<!-- END FOOTER -->
+</body>
+</html>
