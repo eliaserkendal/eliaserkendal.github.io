@@ -76,7 +76,6 @@ footer{
     text-align: center;
     color: #374054;
     opacity: 0.8;
-    /*display: inline-block;*/
 }
 /* END MAIN STUFF */
 
@@ -321,7 +320,7 @@ footer{
     position: relative;
     width: 300px;
     height: 600px;
-    margin: 0 auto 30px 30px;
+    margin: 0 30px 30px 30px;
     overflow: hidden;
     background: #fff;
     border-radius: 4px;
