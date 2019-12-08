@@ -73,6 +73,10 @@ navigation-menu a:hover{
 
 footer{
     padding: 50px;
+    text-align: center;
+    color: #374054;
+    opacity: 0.8;
+    /*display: inline-block;*/
 }
 /* END MAIN STUFF */
 
