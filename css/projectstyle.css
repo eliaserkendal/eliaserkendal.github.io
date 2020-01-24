@@ -90,7 +90,6 @@ footer{
 #header{
     position: relative;
     height: 430px;
-	background-position: top;
     background-size: cover;
     overflow: hidden;
     min-height: 200px;
@@ -131,6 +130,14 @@ footer{
     position: absolute;
     left: 170px;
     top: 50px;
+}
+
+.image-top{
+	background-position: top;
+}
+
+.image-center{
+	background-position: center;
 }
 
 /* END PROFILE STUFF */
@@ -270,6 +277,17 @@ footer{
     font-size: 20px;
     padding: 15px 32px;
     cursor: pointer;
+}
+
+#sidebysideimage{
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    align-content: center;
+}
+
+#align-center{
+    text-align: center;
 }
 
 /* END PROJECT */
