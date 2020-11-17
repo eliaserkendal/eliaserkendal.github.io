@@ -198,6 +198,13 @@ footer{
     font-weight: bold;
 }
 
+#project h3{
+    color: rgb(124, 124, 124);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
 #project p{
     color: rgb(124, 124, 124);
     font-size: 20px;

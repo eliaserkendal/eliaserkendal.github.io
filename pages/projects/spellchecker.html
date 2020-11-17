@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Minecraft tools</title>
+        <link rel="stylesheet" type="text/css" href="../../css/projectstyle.css">
+        <link rel="stylesheet" href="../../scripts/styles/vs2015.css">
+        <script src="../../scripts/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script src="../../scripts/codeboxopenclose.js"></script>
+        <script>HideShowCodebox();</script>
+    </head>
+<body>
+
+<!-- HEADER WITH MENU -->
+<header>
+    <navigation-menu>
+    <ul class="shadow">
+        <li>
+            <a href="../../index.html" target="_self"> Home </a>
+        </li>
+        <li>
+            <a href="../../index.html#projects" target="_self"> Projects </a>
+        </li>
+        <li>
+            <a href="../about.html" target="_self"> About </a>
+        </li>
+        <li>
+            <a href="../about.html#experience" target="_self"> Experience </a>
+        </li>
+        <li>
+            <a href="../about.html#education" target="_self"> Education </a>
+        </li>
+        <li>
+            <a href="../about.html#skills" target="_self"> Skills </a>
+        </li>
+    </ul>
+    </navigation-menu>
+</header>
+<!-- END HEADER -->
+<!-- PROFILE SECTION -->
+<div id=header class="headertint image-top" style="background-image: url('../../images/grayspellcheckerbackground.png')">
+        <div id="project-logo" class="project-logo" style="background-image: url('../../images/spellcheckerGUI.png')">
+        </div>
+        <div id="profile">
+            <div id="profile-image">
+                <a href="../../index.html">
+                    <img src="../../images/profilePic.png">
+                </a>
+            </div>
+            <p id="name">Elias Erkendal</h1>
+            <p id="title">Junior programmer</h2>
+        <!-- SOCIAL MEDIA LIST -->
+        <ul class="social">
+            <li>
+                <a href="https://www.linkedin.com/in/elias-erkendal-9b6059144/" target="_blank" alt="linkedin">
+                    <i class="linkedin">
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/Lemonoak" target="_blank" alt="github"> 
+                    <i class="github">
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/elias27122" target="_blank" alt="twitter"> 
+                    <i class="twitter">
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/elias.erkendal.7" target="_blank" alt="facebook"> 
+                    <i class="facebook">
+                    </i>
+                </a>
+            </li>
+        </ul>
+        <!-- END SOCIAL MEDIA LIST -->
+        </div>
+</div>
+<!-- END PROFILE SECTION -->
+<div id="project" class="project-background" style="background-image: url('../../images/grayspellcheckerbackground.png')">
+    <div id="project-container">
+        <h2>Project Overview</h2>
+        <p></p>
+        
+        <video class="attack-video" autoplay loop muted><source src="../../videos/.mp4" type="video/mp4"></video>
+
+        <h2>Tool Info</h2>
+        <div id="game-info">
+            <div id="game-info-left">
+                <h3>Role: <span class="li-answer">Programmer</span></h3>
+                <h3>Date: <span class="li-answer">May 2020 - June 2020</span></h3>
+                <h3>Team Size: <span class="li-answer">Solo project</span></h3>
+            </div>
+            <div id="game-info-right">
+                <h3>Engine: <span class="li-answer">Visual studio</span></h3>
+                <h3>Version Control: <span class="li-answer">Git</span></h3>
+                <h3>Code Language: <span class="li-answer">C#</span></h3>
+            </div>
+        </div>
+
+        <h2>My Role</h2>
+        <p>I worked on these projects while interning at House of How. I was the only programmer on these tools with some help from my mentor when I got stuck with something that I could not solve or was spending too much time on.</p>
+        <h2>Spell checker</h2>
+        <p>The Minecraft spell checker is a command line and GUI interface tool that was integrated in House of How’s product shipping pipeline. The purpose of the tool is to find spelling errors in Minecraft maps to avoid failing certification and losing weeks of time waiting for approval. </p>
+        <p>The spell checker opens Minecraft bedrock worlds, searches for signs and command-blocks, takes the blocks text data, split the sentences into words and compare those to a dictionary. If the word is spelt incorrectly the tool will tell the user the word, the location of the sign or command-block and in the debug box it will also show the whole content of the sign or command-block. This way the user can easily determine if the word fits the context and the tool was wrong.</p>
+        
+        <img src="../../images/spellcheckernoerrorsfound.png" alt="spellchecker_GUI" alt="spellcheckerGUI" height="500", width ="750">
+        <p>If an error is clicked on it will highlight the debug box's equivalent error to show the user more information</p>
+        <img src="../../images/spellcheckerfounderrorshighlight.png" alt="spellchecker_GUI" alt="spellcheckerGUIErrors" height="500", width ="750">
+            
+        <div id="codebox" style="max-height: 50px;">
+            <button class="codebox-button" onclick="HideShowCodebox('codebox')">Spell checker code snippet</button>
+            <pre><code class="C# hljs">//Read the stream of data to get the writable blocks
+if (memoryStream.Position >= memoryStream.Length)
+    break;
+
+NbtReader nbtReader = new NbtReader(memoryStream, false);
+NbtTag tag = nbtReader.ReadAsTag();
+NbtCompound compound = (NbtCompound)tag;
+foreach (NbtTag compoundTag in compound)
+{
+    if (compoundTag.Name != "id")
+        continue;
+
+    if (compoundTag.StringValue.Equals("Chest")
+        || compoundTag.StringValue.Equals("MobSpawner")
+        || compoundTag.StringValue.Equals("EnderChest"))
+        continue;
+
+    //Isolate signs and command blocks into a list
+    if (compoundTag.StringValue.Contains("Sign") && !readableCompounds.Contains(compound))
+        readableCompounds.Add(compound);
+    if (compoundTag.StringValue.Contains("CommandBlock") && !readableCompounds.Contains(compound))
+        readableCompounds.Add(compound);
+}
+
+
+
+//Check for spelling errors in each word, Currently it will give errors for numbers!
+string loweredClearedSplit = clearedSplit[i].ToLower();
+//This is for checking words that end with 's. remove the 's and then 
+//check the word itself and then add it back if the word doesnt exist in the dictionary
+if (!wordDictionary.Contains(loweredClearedSplit))
+{
+    if (loweredClearedSplit.EndsWith("'s"))
+    {
+        string newClearedSplit = loweredClearedSplit.Remove(loweredClearedSplit.IndexOf("'s"), 2);
+        if (newClearedSplit == string.Empty)
+            continue;
+        if (!wordDictionary.Contains(newClearedSplit))
+        {
+            newClearedSplit = clearedSplit[i];
+            wrongWords.Add(newClearedSplit);
+        }
+    }
+    else if (!wordDictionary.Contains(loweredClearedSplit))
+    {
+        wrongWords.Add(clearedSplit[i]);
+    }
+}
+            </code></pre>
+        </div>
+        <p></p>
+        <h2>World renamer</h2>
+        <p>The world renamer is a simple command-line tool that changes opens a Minecraft bedrock level.dat file to read and edit the name.</p>
+        <p>World renamer needs multiple arguments to change a level name. The first being a path to a Minecraft world and the second being the new name. There's also a third optional argument that also changes the levelname.txt file's name. If no new name is entered the program will compare the levelname.txt and level.dat file names to see if they match.</p>
+        <div id="codebox2" style="max-height: 50px;">
+            <button class="codebox-button" onclick="HideShowCodebox('codebox2')">World renamer code snippet</button>
+            <pre><code class="C# hljs">//validate that the leveldat file exists
+private static bool ValidateMinecraftWorld(string levelDatPath)
+{
+    if (!levelDatPath.ToLowerInvariant().EndsWith("level.dat") &&
+        !levelDatPath.ToLowerInvariant().EndsWith("level.dat" + Path.DirectorySeparatorChar) &&
+        !levelDatPath.ToLowerInvariant().EndsWith("level.dat" + Path.AltDirectorySeparatorChar))
+    {
+        levelDatPath = Path.Combine(levelDatPath, "level.dat");
+        if (File.Exists(levelDatPath))
+            return true;
+        else
+        {
+            //If file cannot be found maybe user put db folder or even deeper folders
+            while(!File.Exists(levelDatPath))
+            {
+                levelDatPath = Directory.GetParent(levelDatPath).ToString();
+                levelDatPath = Path.Combine(levelDatPath, "level.dat");
+            }
+            if (!File.Exists(levelDatPath))
+            {
+                Console.Out.WriteLine("Found no level.dat file found");
+                return false;
+            }
+        }
+    }
+    else if (levelDatPath.ToLowerInvariant().EndsWith("level.dat") &&
+             levelDatPath.ToLowerInvariant().EndsWith("level.dat" + Path.DirectorySeparatorChar) &&
+             levelDatPath.ToLowerInvariant().EndsWith("level.dat" + Path.AltDirectorySeparatorChar))
+    {
+        if (File.Exists(levelDatPath))
+            return true;
+    }
+        
+    return false;
+}
+
+
+
+private static void ChangeDatLevelName(string leveldatPath, string newName)
+{
+    // read level.dat to get the tree
+    NbtTree tree = ReadWriteBedrockLevelDat.ReadLevelDatTree(leveldatPath);
+
+    // change level.dat
+    tree.Root["LevelName"].ToTagString().Data = newName;
+    Console.Out.WriteLine("Changed level.dat name to: " + newName);
+
+    // write level.dat tree to a nbt file
+    ReadWriteBedrockLevelDat.WriteLevelDat(leveldatPath, tree);
+}
+            </code></pre>
+        </div>
+        <p></p>
+    </div>
+</div>
+<!-- FOOTER -->
+<footer>
+    <div>
+        <p></p>
+    </div>
+</footer>
+<!-- END FOOTER -->
+</body>
+</html>

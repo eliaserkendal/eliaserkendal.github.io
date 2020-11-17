@@ -153,10 +153,13 @@ footer{
 
 #project-info p{
     color: rgb(238, 238, 238);
-    text-shadow: rgba(0, 0, 0, 0.35);
     padding-left: 15px;
     padding-right: 15px;
-    text-shadow: 2px 2px rgba(0,0,0,0.24);
+    text-shadow:    
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
 }
 
 #project-info h2{
@@ -164,7 +167,11 @@ footer{
     font-weight: 300;
     color: rgb(243, 241, 241);
     margin: 15px 0 15px 0;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.541);
+    text-shadow:     
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
 }
 
 /* END PROJECTS */
@@ -327,6 +334,17 @@ footer{
     display: inline-block;
 }
 
+.project-containers2{
+    position: relative;
+    width: 300px;
+    height: 600px;
+    margin: 0 30px 30px 30px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 4px;
+    display: inline-block;
+}
+
 .project-full-images{
     width: 300px;
     height: 600px;
@@ -348,7 +366,28 @@ footer{
     background-color: rgba(94, 94, 94, 0.719);
 }
 
+.overlayunseencradle{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0%;
+    width: 100%;
+    opacity: 0;
+    transition: height .7s ease;
+    background-image: url("../images/unseencradlebadending.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .project-containers:hover .overlay, .project-containers:focus .overlay{
+    opacity: 1;
+    height: 100%;
+}
+
+.project-containers2:hover .overlayunseencradle, .project-containers2:focus .overlayunseencradle{
     opacity: 1;
     height: 100%;
 }
@@ -394,6 +433,12 @@ footer{
 
 .github{
     content: url("../images/githubicon.png");
+    width: 40px;
+    height: 40px;
+}
+
+.gitfork{
+    content: url("../images/gitforklogo.png");
     width: 40px;
     height: 40px;
 }

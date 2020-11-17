@@ -159,6 +159,23 @@ footer{
 
 /* END EDUCATION */
 
+/* experience */
+
+#experience{
+    text-align: center;
+    padding: 50px 15px 20px 15px;
+    border-bottom: 1px solid rgb(182, 182, 182);
+}
+
+#experience h2{
+    color: rgb(34, 34, 34);
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: 30px;
+}
+
+/* END EDUCATION */
+
 /* SKILLS */
 
 #skills{
@@ -386,8 +403,58 @@ footer{
 
 /* END ABOUT STUFF */
 
-/* EDUCATION STUFF */
+/* INFORMATION BLOCK*/
+.information-block{
+    background-color: rgb(255, 255, 255);
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    padding: 15px;
+    border: 1px solid rgb(153, 153, 153);
+    text-align: left;
+    display: flex;
+}
 
+.information-block h3{
+    font-weight: 500;
+    float: left;
+    margin: 0 0 5px 0;
+    color: rgb(78, 78, 78);
+}
+
+.information-block h4{
+    font-weight: 500;
+    clear: both;
+    margin: 0 0 15px 0;
+    color: rgb(153, 153, 153);
+}
+
+.information-block p{
+    font-size: 15px;
+    clear: both;
+    margin: 0 0 0 0;
+    color: rgb(153, 153, 153);
+}
+
+.information-date{
+    color: rgb(153, 153, 153);;
+    float: right;
+}
+
+.information-block-information{
+    max-width: 85%;
+    word-wrap: break-word;
+}
+
+.image-block{
+    max-width: 100px;
+    max-height: 100px;
+    margin: auto 10px auto auto;
+    text-align:left;
+}
+/* END INFORMATION BLOCK */
+
+/* NO LONGER USED */
+/* EDUCATION STUFF */
 .education-block{
     background-color: rgb(255, 255, 255);
     max-width: 700px;
@@ -431,6 +498,13 @@ footer{
     float: left;
     margin: 0 0 0 5px;
 }
+.education-logo-HoH{
+    content: url("../images/HoHlogo.png");
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0 0 0 5px;
+}
 .education-logo-THG{
     content: url("../images/stockholmstadlogo.png");
     width: 20px;
@@ -438,11 +512,27 @@ footer{
     float: left;
     margin: 0 0 0 5px;
 }
-
 /* END EDUCATION STUFF */
 
-/* SKILLS */
+/* EXPERIENCE IMAGES */
+.experience-logo-FG{
+    content: url("../images/FGLogo.png");
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0 0 0 5px;
+}
+.education-logo-THG{
+    content: url("../images/stockholmstadlogo.png");
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0 0 0 5px;
+}
+/* END EXPERIENCE STUFF */
+/* NO LONGER USED */
 
+/* SKILLS */
 
 
 /* END SKILLS */
