@@ -82,7 +82,7 @@
 <div id="project" class="project-background-repeat" style="background-image: url('../../images/cubespattern.png')">
     <div id="project-container">
         <h2>Project Overview</h2>
-        <p>Color Craze is a mobile brain teaser game developed by me alone. The gameplay is to click the correct side of the cube corresponding to the color that the text says. Both the text and cube sides switch colors.</p>
+        <p>Color Craze is a mobile brain teaser solo project. The player is supposed to press the correct side of the cube, corresponding to the color that the text says. Both the text and the cube sides switch colors to confuse the player!</p>
         
         <h2>Game Info</h2>
         <div id="game-info">
@@ -101,9 +101,9 @@
         </div>
 
         <h2>The color switching system</h2>
-        <p>This was the first project I completed and looking back I can clearly see that. Every color for every side is a gameobject. They switch by being set to disabled or enabled randomly has long as theres only one of each color.</p>
+        <p>This was the first project I completed and looking back I can clearly see that. A lot could be improved, every color for every side is a gameobject. They switch by being set to disabled or enabled randomly has long as theres only one of each color.</p>
         <video class="attack-video" autoplay loop muted><source src="../../videos/colorcrazedemo.mp4" type="video/mp4"></video>
-            <p>Today I would just have one gameobject for every side and just switch the colors on the sprite and other required variables to match that color.</p>            
+            <p>If I were to remake this today I would have one gameobject for each side and switch the sprite colors and a int variable to match the color. That way it would be easier to check that theres always one of each color.</p>            
             <div id="codebox" style="max-height: 50px;">
                 <button class="codebox-button" onclick="HideShowCodebox('codebox')">Clicking code snippet</button>
             <pre><code class="C# hljs">
@@ -171,7 +171,7 @@ public void cubeclickleft()
             </code></pre>
         </div>        
         <h2>The UI</h2>
-        <p>The UI is clearly the weakest part of this game. I tried to do a low art requirement approach but menus still need to be easy to navigate and I believe thats the main issue</p>
+        <p>I feel that the UI is a weak part of this game. Since it was a solo project I tried to do a minimal art approach, simple shapes and colors. And while it worked for the actual gameplay parts, The menu is confusing to navigate.</p>
         <p>Each menu is a panel with all the buttons being child objects. To switch menu it does the same has with the cube sides. It enables the menu the player want to go to and disables all the others.</p>
         
         <div id="codebox2" style="max-height: 50px;">
@@ -196,11 +196,11 @@ public void Playgame()
 }
         </code></pre>
         </div>
-        <p>Not every menu would need to be disabled but I did it because I wanted to be 100% sure no menus overlapped. But that made so much unnecessary code and makes it harder to read.</p>
+        <p>Not every menu would need to be disabled but I did that because I wanted to be 100% sure no menus overlapped. That resulted in so much unnecessary code and maked it harder to read.</p>
         
         <h2>Release</h2>
         <p>This was also the first game I tried to release on the google play store. I wanted to learn how releasing a game could be and how feedback should be taken in to consideration.</p>
-        <p>After joining a discord community asking for feedback on the title I changed the background color from a dark gray to a light one to make the bright colors of the cube look more pleasing.</p>
+        <p>After joining a discord community asking for feedback on the title I changed the background color from a dark gray to a lighter one to make the bright colors of the cube look more pleasing and less straining on the eye.</p>
         <div id="align-center">
             <div id="sidebysideimage">
                 <p>Old Color</p>
@@ -211,7 +211,7 @@ public void Playgame()
                 <img src="../../images/colorcrazenewcolor.jpg" alt="Old_Color" height="300", width ="150">
             </div>
         </div>
-        <p>I also changed how fast the ingame timer changed to a lower max time but that could have been tweaked even more since it is still very slow.</p>
+        <p>I also changed how fast the ingame timer changed to a lower max time but that could have been tweaked even more since it was still very slow.</p>
     </div>
 </div>
 <!-- FOOTER -->
