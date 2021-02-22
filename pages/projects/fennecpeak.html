@@ -109,9 +109,10 @@
         <video class="attack-video" autoplay loop muted><source src="../../videos/FennecMelee.mp4" type="video/mp4"></video>
             <p> A problem that occured with the raycast method was that the rays originated from the characters center going straight outwards. This became a problem when we introduced height, jumping and smaller objects into the game!</p>
             <p>To improve hit detection we used three ray arcs with different starting heights on the character, one arc each from the head, the feet and the middle of the character.</p>
-            
-            <div id="codebox" style="max-height: 50px;">
+            <div id="codebox-buttonDiv">
                 <button class="codebox-button" onclick="HideShowCodebox('codebox')">Attack Code Snippet</button>
+            </div>
+            <div id="codebox" style="max-height: 0px;">
             <pre><code class="C# hljs">
 //TOP ATTACK int angle = (int)(hitArcAngle / 2) * -1; 
 rayNumber = (int)hitArcAngle / 5; 
@@ -150,10 +151,12 @@ for (int i = 0; i &#60; rayNumber; i++)
         <img src="../../images/currentpowerupstructure.png" alt="powerup structure">
         <p>A desired structure would have been that the player has the shader and variables referenced on the main player object, making it easier and possibly faster to get the needed components. Since the game only had one power-up it could handle both spawning and collisions by itself, reducing the amount of objects involved in the process and making it easier to use by level designers.</p>
         <img src="../../images/desiredpowerupstructure.png" alt="wanted powerup structure">
-        
-        <div id="codebox2" style="max-height: 50px;">
+        <div id="codebox-buttonDiv">
             <button class="codebox-button" onclick="HideShowCodebox('codebox2')">Power-up Snippet</button>
-        <pre><code class="C# hljs">
+        </div>
+        <div id="codebox2" style="max-height: 0px;">
+        <pre><code class="C# hljs">//Powerup.css
+//Player collides with the powerup
 private void OnTriggerEnter(Collider other) 
 { 
     if(other.tag == "Player" &#38;&#38; !other.isTrigger) 
@@ -170,7 +173,41 @@ public override void PowerUpEffect(Collider player)
     { 
         //finds player weapon Changes material to gold 
         player.GetComponentInChildren&#60;PlayerWeaponPowerUP&#62;()?.ChangeMaterialToGold(); 
-    } 
+    }
+}
+
+//PlayerWeaponPowerUP.css
+//Do visuals for powerup on player
+public void ChangeMaterialToGold()
+{
+    //If weapon has multiple materials change all to gold and keep a list of old ones
+    Material[] materials = new Material[oldMatList.Length];
+    for (int i = 0; i < materials.Length; i++)
+    {
+        materials[i] = gold;
+    }
+    GetComponent<Renderer>().materials = materials;
+    
+    if (vfxPowerup && vfxPowerup.isStopped)
+        vfxPowerup.Play();
+
+    //Do actual weapon power increase
+    IncreasePower();
+}
+
+public void IncreasePower()
+{
+    isReset = false;
+    isPoweredUp = true;
+    if(spawner)
+    {
+        spawner.isPoweredUp = true;
+    }
+    powerUPTimer = powerupTime;
+    oldKnockbackForce = playerMe.GetComponent<PlayerHeavyAttack>().knockBackForce;
+    oldGroundslamStrength = playerMe.GetComponent<Groundslam>().strength;
+    playerMe.GetComponent<PlayerHeavyAttack>().knockBackForce = newKnockbackForce;
+    playerMe.GetComponent<Groundslam>().strength = groundslamStrength;
 }
 </code></pre>
         </div>

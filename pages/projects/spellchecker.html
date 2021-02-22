@@ -111,9 +111,11 @@
         <img src="../../images/spellcheckernoerrorsfound.png" alt="spellchecker_GUI" alt="spellcheckerGUI" height="500", width ="750">
         <p>If an error is clicked on it will highlight the debug box's equivalent error to show the user more information</p>
         <img src="../../images/spellcheckerfounderrorshighlight.png" alt="spellchecker_GUI" alt="spellcheckerGUIErrors" height="500", width ="750">
-            
-        <div id="codebox" style="max-height: 50px;">
+        
+        <div id="codebox-buttonDiv">
             <button class="codebox-button" onclick="HideShowCodebox('codebox')">Spell checker code snippet</button>
+        </div>
+        <div id="codebox" style="max-height: 0px;">
             <pre><code class="C# hljs">//Read the stream of data to get the writable blocks
 if (memoryStream.Position >= memoryStream.Length)
     break;
@@ -168,8 +170,11 @@ if (!wordDictionary.Contains(loweredClearedSplit))
         <h2>World renamer</h2>
         <p>The world renamer is a simple command-line tool that changes opens a Minecraft bedrock level.dat file to read and edit the name.</p>
         <p>World renamer needs multiple arguments to change a level name. The first being a path to a Minecraft world and the second being the new name. There's also a third optional argument that also changes the levelname.txt file's name. If no new name is entered the program will compare the levelname.txt and level.dat file names to see if they match.</p>
-        <div id="codebox2" style="max-height: 50px;">
+        
+        <div id="codebox-buttonDiv">
             <button class="codebox-button" onclick="HideShowCodebox('codebox2')">World renamer code snippet</button>
+        </div>
+        <div id="codebox2" style="max-height: 0px;">
             <pre><code class="C# hljs">//validate that the leveldat file exists
 private static bool ValidateMinecraftWorld(string levelDatPath)
 {

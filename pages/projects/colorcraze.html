@@ -104,8 +104,11 @@
         <p>This was the first project I completed and looking back I can clearly see that. A lot could be improved, every color for every side is a gameobject. They switch by being set to disabled or enabled randomly has long as theres only one of each color.</p>
         <video class="attack-video" autoplay loop muted><source src="../../videos/colorcrazedemo.mp4" type="video/mp4"></video>
             <p>If I were to remake this today I would have one gameobject for each side and switch the sprite colors and a int variable to match the color. That way it would be easier to check that theres always one of each color.</p>            
-            <div id="codebox" style="max-height: 50px;">
+            
+            <div id="codebox-buttonDiv">
                 <button class="codebox-button" onclick="HideShowCodebox('codebox')">Clicking code snippet</button>
+            </div>
+            <div id="codebox" style="max-height: 0px;">
             <pre><code class="C# hljs">
 public void cubeclickleft()
 {
@@ -174,8 +177,10 @@ public void cubeclickleft()
         <p>I feel that the UI is a weak part of this game. Since it was a solo project I tried to do a minimal art approach, simple shapes and colors. And while it worked for the actual gameplay parts, The menu is confusing to navigate.</p>
         <p>Each menu is a panel with all the buttons being child objects. To switch menu it does the same has with the cube sides. It enables the menu the player want to go to and disables all the others.</p>
         
-        <div id="codebox2" style="max-height: 50px;">
+        <div id="codebox-buttonDiv">
             <button class="codebox-button" onclick="HideShowCodebox('codebox2')">Menu navigation</button>
+        </div>
+        <div id="codebox2" style="max-height: 0px;">
         <pre><code class="C# hljs">
 //One of the menu switches
 public void OpenPlayMenu()

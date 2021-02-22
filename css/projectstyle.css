@@ -265,7 +265,7 @@ footer{
     margin-right: 100px;
     margin-left: 100px;
     margin-top: 0px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 #codebox2{
@@ -275,10 +275,30 @@ footer{
     margin-right: 100px;
     margin-left: 100px;
     margin-top: 0px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .codebox::before{
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color:rgb(44, 44, 44);
+    opacity: 0.8;
+}
+
+#codebox-buttonDiv{
+    position: relative;
+    font-size: 15px;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 0px;
+    overflow: auto;
+}
+
+.codebox-buttonDiv::before{
 	position: relative;
 	top: 0;
 	bottom: 0;

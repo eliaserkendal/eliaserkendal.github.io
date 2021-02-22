@@ -105,8 +105,11 @@
 
         <h2>The AI</h2>
         <p>The AI for this game did not need to be advanced, it tracks the ball position and try to adjust itself to be at the same position to block it from going past the ai.</p>
-            <div id="codebox" style="max-height: 50px;">
-                <button class="codebox-button" onclick="HideShowCodebox('codebox')">AI Movement</button>
+        
+        <div id="codebox-buttonDiv">
+            <button class="codebox-button" onclick="HideShowCodebox('codebox')">AI Movement</button>
+        </div>
+            <div id="codebox" style="max-height: 0px;">
             <pre><code class="C# hljs">
 void HandleMovement()
 {

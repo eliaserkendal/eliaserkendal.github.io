@@ -113,8 +113,10 @@
         </div>
             <img src="../../images/dungencolliderboundscirclesquare.png" alt="dungencolliderboundscirlcesquare" height="450", width ="500">
             
-        <div id="codebox" style="max-height: 50px;">
+        <div id="codebox-buttonDiv">
             <button class="codebox-button" onclick="HideShowCodebox('codebox')">Collider bounds code snippet</button>
+        </div>
+        <div id="codebox" style="max-height: 0px;">
             <pre><code class="C# hljs">
 //Find all the colliders that are meant to be the restriction area.
 //These have to be on a certain layer.
@@ -164,10 +166,11 @@ if (RestrictDungeonToColliderBounds && DungeonRestrictColliders != null && Dunge
         <p>X can be set separetely for each tile using repeat modes where relevant by using the custom tile inspector fields that was added.</p>
         <img src="../../images/repeatmodeexampleone.png" alt="dungencolliderbounds" height="500", width ="750">
         <p>In the picture above, the red tiles are set to "allow maximum 3 tiles in a row" the yellow to "allow 4 maximum in dungeon" and the green ones follow the standard "allow anywhere". Both tile types can still be generated less than the rules say.</p>
-        <div id="codebox2" style="max-height: 50px;">
-            <button class="codebox-button" onclick="HideShowCodebox('codebox2')">Repeat modes code snippet</button>
-        <pre><code class="C# hljs">
-switch (repeatMode)
+        <div id="codebox-buttonDiv">
+        <button class="codebox-button" onclick="HideShowCodebox('codebox2')">Repeat modes code snippet</button>
+        </div>
+        <div id="codebox2" style="max-height: 0px;">
+        <pre><code class="C# hljs">switch (repeatMode)
 {
     //Standard
     case TileRepeatMode.Allow:							
@@ -218,7 +221,7 @@ switch (createdTile.PrefabTile.RepeatMode)
         break;
     default:
         break;
-}        </code></pre>
+}</code></pre>
         </div>
         <p></p>
     </div>
