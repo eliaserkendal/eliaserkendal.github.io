@@ -104,10 +104,10 @@
         <h2>My Role</h2>
         <p>I worked on the movement and combat system for the characters together with the designers. But also some gameplay elements such as the power-up and exploding barrel.</p>
         <h2>The Combat System</h2>
-        <p>The game is focused around the combat and snappy movement so it had to feel right. In the beginning we tried using colliders and triggers for knockback but realised it did not feel good enough. To make the combat feel better we instead used raycasts in an arc to mimic the swinging of the players weapon.</p>
+        <p>The game centers around fluid combat and responsive movement, so getting the feel just right was essential. Initially, we experimented with colliders and triggers for knockback, but we quickly realized that this approach did not deliver the desired experience. To enhance the combat feel, we shifted to using raycasts in an arc to simulate the swinging of the player's weapon.</p>
         <video class="attack-video" autoplay loop muted><source src="../../videos/FennecMelee.mp4" type="video/mp4"></video>
-            <p> A problem that occured with the raycast method was that the rays originated from the characters center going straight outwards. This became a problem when we introduced height, jumping and smaller objects into the game!</p>
-            <p>To improve hit detection we used three ray arcs with different starting heights on the character, one arc each from the head, the feet and the middle of the character.</p>
+        <p> However, we encountered a challenge with the raycast method: the rays originated from the character's center and extended straight outward. This became problematic when we added height variations, jumping mechanics, and smaller objects into the game. </p>
+        <p> To improve hit detection, we implemented three ray arcs at different starting heights on the character, one from the head, one from the feet, and one from the middle. Ensuring more accurate interactions during combat. </p>
             <div id="codebox-buttonDiv">
                 <button class="codebox-button" onclick="HideShowCodebox('codebox')">Attack Code Snippet</button>
             </div>
@@ -142,13 +142,11 @@ for (int i = 0; i &#60; rayNumber; i++)
 }
             </code></pre>
         </div>
-        <p>This was the solution that worked best for us with both time, experience and feeling in mind.</p>
         
         <h2>Power-up</h2>
-        <p>The power-up structure is something that was rushed and could have been improved!</p>
-        <p>The structure ended up with a spawner that handles a timer and disables/hides the power-ups mesh and collider. But the power-up itself handles collisions and when a player enters the collision area the power-up searches the player for components located on different child objects. The characters weapon shader and a script that handles weapon variables such as knockback power</p>
+        <p> The power-up structure was implemented in a hurry and could definitely benefit from further refinement. It features a spawner that manages a timer and disables or hides the power-up’s mesh and collider. The power-up itself is responsible for handling collisions. When a player enters the collision area, it searches the player’s child objects for specific components. This includes the character’s weapon shader and a script that manages weapon variables, such as knockback power. </p>
         <img src="../../images/currentpowerupstructure.png" alt="powerup structure">
-        <p>A desired structure would have been that the player has the shader and variables referenced on the main player object, making it easier and possibly faster to get the needed components. Since the game only had one power-up it could handle both spawning and collisions by itself, reducing the amount of objects involved in the process and making it easier to use by level designers.</p>
+        <p> An ideal structure would involve referencing the shader and variables directly on the main player object, which would simplify and expedite component retrieval. Since the game only features a single power-up, it could manage both spawning and collisions independently. This approach would reduce the number of objects involved, making it more straightforward for level designers to work with. </p>
         <img src="../../images/desiredpowerupstructure.png" alt="wanted powerup structure">
         <div id="codebox-buttonDiv">
             <button class="codebox-button" onclick="HideShowCodebox('codebox2')">Power-up Snippet</button>
@@ -210,8 +208,11 @@ public void IncreasePower()
 }
 </code></pre>
         </div>
-        <p></p>
-    </div>
+    <p></p>
+    <h2>Exploding barrel</h2>
+    <video class="video" autoplay loop muted><source src="../../videos/FennecPeakExplosionExample.mp4" type="video/mp4"></video>
+    <p>The exploding barrels remain inactive until a player strikes them. If a barrel is knocked into another player, it detonates instantly. Otherwise, it starts a timer and will explode after a set duration, knocking back any players within the explosion radius. </p>
+</div>
 </div>
 <!-- FOOTER -->
 <footer>

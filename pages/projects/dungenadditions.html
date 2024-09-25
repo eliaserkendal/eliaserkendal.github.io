@@ -84,16 +84,16 @@
 <div id="project" class="project-background" style="background-image: url('../../images/dungenwithcharacterseven.png')">
     <div id="project-container">
         <h2>Project Overview</h2>
-        <p></p>
+        <p><a href="https://assetstore.unity.com/packages/tools/utilities/dungen-15682" target="popup">DunGen</a> is a unity asset tool that I was tasked with enhancing to increase its flexibility by expanding its options and refining its limitations.</p>
         
-        <video class="attack-video" autoplay loop muted><source src="../../videos/dungengeneration.mp4" type="video/mp4"></video>
+        <video class="video" autoplay loop muted><source src="../../videos/dungengeneration.mp4" type="video/mp4"></video>
 
         <h2>Tool Info</h2>
         <div id="game-info">
             <div id="game-info-left">
                 <h3>Roles: <span class="li-answer">Programmer</span></h3>
                 <h3>Date: <span class="li-answer">May 2020 - June 2020</span></h3>
-                <h3>Team Size: <span class="li-answer">Solo project</span></h3>
+                <h3>Team Size: <span class="li-answer">2 programmers</span></h3>
             </div>
             <div id="game-info-right">
                 <h3>Engine: <span class="li-answer">Unity</span></h3>
@@ -103,9 +103,9 @@
         </div>
 
         <h2>My Role</h2>
-        <p>I worked on this project while interning at House of How. Me and another intern was tasked with generating Minecraft parkour maps by improving the Unity tool <a href="https://assetstore.unity.com/packages/tools/utilities/dungen-15682" target="popup">DunGen</a> to give more creative freedom to the game designers using it.</p>
+        <p>I worked on this project while interning at House of How. Me and another intern was tasked with generating Minecraft parkour maps by improving the Unity tool <a href="https://assetstore.unity.com/packages/tools/utilities/dungen-15682" target="popup">DunGen</a> to give more creative freedom to the game designers using it. </p>
         <h2>Collider bounds</h2>
-        <p>DunGen already had basic bounds restriction implemented but to improve that I was tasked with making a new restriction rule. In scene colliders would count as the restriction area and the dungeon should only be able to generate tiles within that. This rule made it possible to generate the tiles within multiple boxes and in more interesting shapes by moving the colliders.</p>
+        <p> DunGen already had basic boundary restrictions in place, but I was tasked with enhancing this system by creating a new restriction rule. Scene colliders would now be able to define the restricted area, allowing the dungeon to generate tiles only within those bounds. This improvement enabled the generation of tiles within multiple boxes and more intricate shapes by simply adjusting the colliders. </p>
         <img src="../../images/dungencolliderbounds.png" alt="dungencolliderbounds" height="500", width ="750">
         <p>The restriction can find any collider but will only use the bounds for said collider. Since unitys bounds is always represented as a box that means the tiles can be generated outside of the collider if the tile is still within the collider bounds.</p>
         <div id="game-info-left">
