@@ -86,7 +86,7 @@
         <h2>Project Overview</h2>
         <p></p>
         
-        <video class="attack-video" autoplay loop muted><source src="../../videos/.mp4" type="video/mp4"></video>
+        <video class="video" autoplay loop muted><source src="../../videos/UnseenCradleTrailer.mp4" type="video/mp4"></video>
 
         <h2>Game Info</h2>
         <div id="game-info">
@@ -105,32 +105,20 @@
         </div>
 
         <h2>My Role</h2>
-        <p>I worked on the movement for the character, The ai together with another programmer but also gameplay elements such as keys and the elevator</p>
-        <h2>The Movement</h2>
-        <p>TALK ABOUT THE MOVEMENT</p>
-        <p> TALK ABOUT PROBLEMS WITH THE MOVEMENT</p>
-        <p>TALK ABOUT HOW YOU TRIED TO FIX THIS</p>
-            
-        <div id="codebox" style="max-height: 50px;">
-            <button class="codebox-button" onclick="HideShowCodebox('codebox')">Movement Code Snippet</button>
-            <pre><code class="C# hljs">
-//PUT CODE HERE
-            </code></pre>
-        </div>
+        <p>For Unseen Cradle, I worked on the character movement, various gameplay elements such as keys and an elevator system and collaborated with another programmer to develop the enemy AI. To streamline the customization process for designers, I also created visual tools to display the AI's detection range and pathing.</p>
+        <h2>The AI editor tools</h2>
+        <p>The AI in Unseen Cradle required a vision system to chase the player. To prevent it from being overpowered, we implemented a vision range and field of view (FOV) to limit where the AI could detect the player. I developed a editor tool that visually displayed the AI’s vision range and FOV in the game view while in the editor, with the visuals updating in real-time as the range or FOV settings were adjusted.</p>
+        <img src="../../images/unseenCradleAIToolVisuals.png" alt="AIVisualTool">
+        <img src="../../images/unseenCradleAIToolVisualsReferences.png" alt="AIVisualTool">
+        <p>Additionally the AI could also hear the player. To visualize this, I implemented a similar tool to display the AI's hearing range. The player was able to make noise, and this was reflected live with a circle around the player that adjusted dynamically based on their actions, such as crouching or sprinting which affected the noise level. When the AI's hearing range and the player's noise circle overlapped, the AI would navigate towards the intersection point to search for the player.</p>
+        <img src="../../images/UnseenCradlePlayerNoise.png" alt="PlayerNoiseVisual">
+
+        <h2>The Elevator</h2>
+        <p>Due to time constraints there wasn't enough time to create a separate tool for displaying elevator destinations. However to simplify customization I added a curve property, allowing animators to easily adjust the elevator's animation curve.</p>
+        <p>The elevator buttons were separate from the elevator itself. To streamline this the buttons should have been assignable within the elevator script, with button presses being handled directly from there.</p>
+        <img src="../../images/UnseenCradleElevatorInspectorSmall.png" alt="ElevatorInspector">
         <p></p>
-        
-        <h2>The AI</h2>
-        <p>TALK ABOUT AI STRUCTURE</p>
-        <p>TALK ABOUT THE INSPECTOR ADDITIONS</p>
-        <p>EXPLAIN AI</p>
-        
-        <div id="codebox2" style="max-height: 50px;">
-            <button class="codebox-button" onclick="HideShowCodebox('codebox2')">AI Snippet</button>
-        <pre><code class="C# hljs">
-//AI SNIPPET HERE
-        </code></pre>
-        </div>
-        <p></p>
+        <img src="../../images/UnseenCradleElevatorButtonInspectorSmall.png" alt="ElevatorButtonInspector">
     </div>
 </div>
 <!-- FOOTER -->
